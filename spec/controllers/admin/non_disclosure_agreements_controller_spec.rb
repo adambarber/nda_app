@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe Admin::NonDisclosureAgreementsController do
   let(:non_disclosure_agreement) { stub_model(NonDisclosureAgreement) }
+  let(:mock_user) { stub_model(User) }
+
   before(:each) do
+    request.env['warden'] = double(Warden, :authenticate => mock_user, :authenticate! => mock_user)
     @nda = NonDisclosureAgreement.create(name: "First NDA", body: "This is the text of an NDA")
   end
 

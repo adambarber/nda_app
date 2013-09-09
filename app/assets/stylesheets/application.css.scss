@@ -9,9 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require_tree .
 */
-
+body {
+  padding-top: 80px;
+}
 .content {
   background-color: #eee;
   padding: 20px;

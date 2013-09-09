@@ -1,9 +1,9 @@
 NdaApp::Application.routes.draw do
+  devise_for :users
   resources :admin, path: "admin", only: [:index]
-
   namespace :admin do
+    get '/settings', action: 'settings', as: :settings
     resources :non_disclosure_agreements, path: "/ndas"
   end
-
-  devise_for :users
+  root to: "signatures#index"
 end

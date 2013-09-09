@@ -1,0 +1,45 @@
+.row
+  .col-md-8
+    %table.table.table-bordered.table-striped
+      %thead
+        %th Setting Name
+        %th Setting Value
+      %tbody
+        %tr
+          %td Site Name:
+          %td= ENV['SITE_NAME']
+        %tr
+          %td From Email Address:
+          %td= ENV['SITE_FROM_EMAIL_ADDRESS']
+        %tr
+          %td From Email Name:
+          %td=  ENV['SITE_FROM_EMAIL_FROM']
+        %tr
+          %td Site URL:
+          %td=  ENV['SITE_URL']
+  .col-md-4
+    .row
+      .col-md-12
+        .panel.panel-info
+          .panel-heading
+            %strong About Application Settings
+          .panel-body
+            %p
+              In order to make NDAapp easily configurable
+              a number of settings are defined via environment
+              variables. You can see the list of settings,
+              and their values in the table to the left.
+    .row
+      .col-md-12
+        .panel.panel-info
+          .panel-heading
+            %strong Changing Application Settings on Heroku
+          .panel-body
+            %p
+              To learn how to change Heroku configuration variables
+              please read
+              = link_to "https://devcenter.heroku.com/articles/config-vars", "https://devcenter.heroku.com/articles/config-vars", target: '_blank'
+            %p
+              Sample application settings are provided in the 'application.yml.example' file. Using figaro, run the
+              %strong rake figaro:heroku
+              task to import setting from your own application.yml file.

@@ -1,10 +1,15 @@
 require 'spec_helper'
 
 describe AdminController do
+  include Devise::TestHelpers
   let(:signature) { stub_model(Signature) }
+  let(:mock_user) { stub_model(User) }
+
   before(:each) do
+    request.env['warden'] = double(Warden, :authenticate => mock_user, :authenticate! => mock_user)
     @signature = Signature.create(name: "John Doe")
   end
+
   describe "GET 'index'" do
     describe "response" do
       it "returns http success" do

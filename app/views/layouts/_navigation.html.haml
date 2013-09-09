@@ -1,7 +1,20 @@
-/ = link_to "Nda App", root_path, :class => 'brand'
-%ul.nav
-  %li= link_to "Signatures", admin_index_path
-  %li= link_to "Non-Disclosure Agreements", admin_non_disclosure_agreements_path
-  %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
-  %li= link_to 'Edit account', edit_user_registration_path
+.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to ENV['SITE_NAME'], admin_index_path, :class => 'navbar-brand'
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "Signatures", admin_index_path
+        %li= link_to "Non-Disclosure Agreements", admin_non_disclosure_agreements_path
+
+        %li.dropdown
+          = link_to '', class: 'dropdown-toggle', data: { toggle: 'dropdown'} do
+            = current_user.name
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to 'Edit account', edit_user_registration_path
+            %li= link_to "Settings", admin_settings_path
+            %li.divider
+            %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+
 
