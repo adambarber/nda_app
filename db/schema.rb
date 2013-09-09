@@ -21,10 +21,7 @@ ActiveRecord::Schema.define(version: 20130909070757) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "signature_id"
   end
-
-  add_index "non_disclosure_agreements", ["signature_id"], name: "index_non_disclosure_agreements_on_signature_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -42,7 +39,10 @@ ActiveRecord::Schema.define(version: 20130909070757) do
     t.datetime "updated_at"
     t.string   "name"
     t.text     "drawn_signature"
+    t.integer  "non_disclosure_agreement_id"
   end
+
+  add_index "signatures", ["non_disclosure_agreement_id"], name: "index_signatures_on_non_disclosure_agreement_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

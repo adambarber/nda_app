@@ -1,5 +1,5 @@
 class AddSignatureAssociationToNonDisclosureAgreements < ActiveRecord::Migration
   def change
-    add_reference :non_disclosure_agreements, :signature, index: true
+    add_reference :signatures, :non_disclosure_agreement , index: true
   end
 end
