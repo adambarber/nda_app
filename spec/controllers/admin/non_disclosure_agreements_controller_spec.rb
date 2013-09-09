@@ -4,7 +4,6 @@ describe Admin::NonDisclosureAgreementsController do
   describe "GET 'index'" do
 
     let(:non_disclosure_agreement) { stub_model(NonDisclosureAgreement) }
-
     before(:each) do
       @nda = NonDisclosureAgreement.create(name: "First NDA", body: "This is the text of an NDA")
     end
@@ -32,6 +31,29 @@ describe Admin::NonDisclosureAgreementsController do
       it "should display NDAs table" do
         get 'index'
         expect(response.body).to have_css("table#ndas_table")
+      end
+    end
+  end
+
+  describe "Get 'show'" do
+
+    let(:non_disclosure_agreement) { stub_model(NonDisclosureAgreement) }
+    before(:each) do
+      @nda = NonDisclosureAgreement.create(name: "First NDA", body: "This is the text of an NDA")
+    end
+
+    describe 'response' do
+      it 'returns http success' do
+        get 'show', id: @nda
+        expect(response).to be_success
+      end
+    end
+
+    describe 'views' do
+      render_views
+      it 'should show NDA name' do
+        get 'show', id: @nda
+        expect(response.body).to have_content(@nda.name)
       end
     end
   end

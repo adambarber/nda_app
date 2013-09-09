@@ -2,18 +2,15 @@ require 'spec_helper'
 
 describe AdminController do
   let(:signature) { stub_model(Signature) }
-
   before(:each) do
     @signature = Signature.create(name: "John Doe")
   end
-
   describe "GET 'index'" do
     describe "response" do
       it "returns http success" do
         get 'index'
         response.should be_success
       end
-
       it "assigns @signatures" do
         get 'index'
         expect(assigns(:signatures)).to eq([@signature])
@@ -39,6 +36,10 @@ describe AdminController do
         get 'index'
         expect(response.body).to have_content @signature.id
         expect(response.body).to have_content @signature2.id
+      end
+      it "should link to signatures" do
+        get 'index'
+        expect(response.body).to have_link "Signatures"
       end
       it "should link to non disclosure index" do
         get 'index'
