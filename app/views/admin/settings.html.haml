@@ -4,7 +4,7 @@
     %hr
 .row
   .col-md-8
-    %table.table.table-bordered.table-striped
+    %table.table.table-bordered.table-striped#settings_table
       %thead
         %th Setting Name
         %th Setting Value
@@ -45,7 +45,7 @@
             %p
               To learn how to change Heroku configuration variables
               please read
-              = link_to "https://devcenter.heroku.com/articles/config-vars", "https://devcenter.heroku.com/articles/config-vars", target: '_blank'
+              = raw "#{link_to "this heroku knowledge center article", "https://devcenter.heroku.com/articles/config-vars", target: '_blank'}."
             %p
               Sample application settings are provided in the 'application.yml.example' file. Using figaro, run the
               %strong rake figaro:heroku

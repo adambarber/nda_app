@@ -52,4 +52,32 @@ describe AdminController do
       end
     end
   end
+
+  describe "GET 'settings'" do
+    describe "response" do
+      it "returns http success" do
+        get 'settings'
+        response.should be_success
+      end
+    end
+
+    describe "views" do
+      render_views
+      it "renders sidebar boxes" do
+        get 'settings'
+        expect(response.body).to have_content "About Application Settings"
+        expect(response.body).to have_content "Changing Application Settings on Heroku"
+      end
+
+      it "renders settings table" do
+        get 'settings'
+        expect(response.body).to have_selector "table#settings_table"
+      end
+
+      it "renders the correct page title" do
+        get 'settings'
+        expect(response.body).to have_selector "h1", text: "Application Settings"
+      end
+    end
+  end
 end

@@ -50,9 +50,13 @@ describe Admin::NonDisclosureAgreementsController do
     end
     describe 'views' do
       render_views
-      it 'should show NDA name' do
+      it 'shows NDA name' do
         get 'show', id: @nda.id
         expect(response.body).to have_content(@nda.name)
+      end
+      it "shows content of NDA" do
+        get 'show', id: @nda
+        expect(response.body).to have_content "NDA Text"
       end
     end
   end

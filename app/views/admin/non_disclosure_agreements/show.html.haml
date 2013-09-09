@@ -2,6 +2,28 @@
 .row
   .col-md-12
     %h1= @nda.name
+    %hr
 
 .row
-  .col-md-12
+  .col-md-8
+    .panel.panel-default
+      .panel-heading
+        NDA Text
+        .pull-right= link_to "Edit", edit_admin_non_disclosure_agreement_path(@nda)
+      .panel-body
+        = @nda.body
+  .col-md-4
+    .panel.panel-info
+      .panel-heading
+        NDA Details
+      .panel-body
+        %ul.list-group
+          %li.list-group-item
+            %strong Created On:
+            = @nda.display_created_at
+          %li.list-group-item
+            %strong Created By:
+            = @nda.display_created_at
+          %li.list-group-item
+            %strong Last Updated:
+            = "#{@nda.last_updated_at} ago"
