@@ -4,6 +4,7 @@ NdaApp::Application.routes.draw do
   namespace :admin do
     get '/settings', action: 'settings', as: :settings
     resources :non_disclosure_agreements, path: "/ndas"
+    resources :users
   end
   root to: "signatures#index"
 end

@@ -11,10 +11,11 @@
   %body{:class => "#{controller_name} #{action_name}"}
     = render 'layouts/navigation'
     #main{:role => "main"}
+      - if content_for?(:action_bar)
+        = content_for(:action_bar)
       .container
-
         .row
-          .span12
+          .col-md-12
             = render 'layouts/messages'
             = yield
         %footer

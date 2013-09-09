@@ -1,4 +1,8 @@
 .row
+  .col-md-12
+    %h1 Application Settings
+    %hr
+.row
   .col-md-8
     %table.table.table-bordered.table-striped
       %thead
@@ -17,6 +21,9 @@
         %tr
           %td Site URL:
           %td=  ENV['SITE_URL']
+        %tr
+          %td Site Logo Url:
+          %td=  ENV['SITE_LOGO_URL']
   .col-md-4
     .row
       .col-md-12

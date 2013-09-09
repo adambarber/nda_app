@@ -1,6 +1,6 @@
 .row
   .col-md-12
-    %h1 Signatures
+    %h1 Application Users
     %hr
 
 
@@ -10,8 +10,8 @@
       %thead
         %th ID
         %th Name
-        %th Date
-        %th Signature
+        %th Email
+        %th Created On
       %tbody
-        = render collection: @signatures, partial: "admin/signature"
+        / = render collection: @signatures, partial: "admin/signature"
 
