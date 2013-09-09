@@ -83,4 +83,39 @@ describe Admin::NonDisclosureAgreementsController do
       end
     end
   end
+
+  describe "Get 'new'" do
+    describe 'requests' do
+      it "returns http success" do
+        get 'new'
+        response.should be_success
+      end
+      it "assigns @ndas" do
+        get 'new'
+        expect(assigns(:nda)).to_not be_nil
+      end
+    end
+    describe 'views' do
+      render_views
+      it "should have 'new nda' title" do
+        get 'new'
+        expect(response.body).to have_selector("h1", text: "Add A New NDA")
+      end
+      it "should have a new nda form" do
+        get 'new'
+        expect(response.body).to have_selector('form')
+      end
+    end
+  end
+
+  describe "Post 'create'" do
+    describe 'response' do
+      it "returns http success" do
+        expect {
+          post 'create', {non_disclosure_agreement: { name: "new name", body: "new body text" }}
+        }.to change(NonDisclosureAgreement, :count).by(1)
+      end
+    end
+  end
+
 end

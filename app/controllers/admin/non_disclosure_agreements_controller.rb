@@ -20,6 +20,19 @@ class Admin::NonDisclosureAgreementsController < AdminController
     end
   end
 
+  def new
+    @nda = NonDisclosureAgreement.new
+  end
+
+  def create
+    @nda = NonDisclosureAgreement.create(nda_params)
+    if @nda.save
+      redirect_to admin_non_disclosure_agreement_path(@nda), notice: "Success!"
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def nda_params
