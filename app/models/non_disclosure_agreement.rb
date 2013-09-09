@@ -1,5 +1,6 @@
 class NonDisclosureAgreement < ActiveRecord::Base
   include ActionView::Helpers::DateHelper
+  has_many :signatures
   validates :name, :body, presence: true
 
   def display_created_at

@@ -1,0 +1,9 @@
+%table#signatures_table.table.bordered-table.table-striped
+  %thead
+    %th ID
+    %th Name
+    %th Date
+    %th Signature
+    %th NDA Name
+  %tbody
+    = render collection: signatures, partial: "admin/signature"

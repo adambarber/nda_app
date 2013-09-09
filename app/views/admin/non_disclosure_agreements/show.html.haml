@@ -39,4 +39,4 @@
 .row
   .col-md-12
     %h3 Collected Signatures
-    %hr
+    = render "admin/sig_table", { signatures: @signatures }

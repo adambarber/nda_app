@@ -6,12 +6,5 @@
 
 .row
   .col-md-12
-    %table#signatures_table.table.bordered-table.table-striped
-      %thead
-        %th ID
-        %th Name
-        %th Date
-        %th Signature
-      %tbody
-        = render collection: @signatures, partial: "admin/signature"
+    = render "admin/sig_table", { signatures: @signatures }
 

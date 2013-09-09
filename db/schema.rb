@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909004126) do
+ActiveRecord::Schema.define(version: 20130909070757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20130909004126) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "signature_id"
   end
+
+  add_index "non_disclosure_agreements", ["signature_id"], name: "index_non_disclosure_agreements_on_signature_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
