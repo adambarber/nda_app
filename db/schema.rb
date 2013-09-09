@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909001405) do
+ActiveRecord::Schema.define(version: 20130909004126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "non_disclosure_agreements", force: true do |t|
+    t.text     "body"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.string   "name"
@@ -30,6 +37,8 @@ ActiveRecord::Schema.define(version: 20130909001405) do
   create_table "signatures", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.text     "drawn_signature"
   end
 
   create_table "users", force: true do |t|
