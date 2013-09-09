@@ -9,4 +9,9 @@ class NonDisclosureAgreement < ActiveRecord::Base
   def last_updated_at
     time_ago_in_words self.updated_at
   end
+
+  def formatted_body
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
+    (markdown.render body).html_safe
+  end
 end

@@ -11,7 +11,7 @@
         NDA Text
         .pull-right= link_to "Edit", edit_admin_non_disclosure_agreement_path(@nda)
       .panel-body
-        = @nda.body
+        = @nda.formatted_body
   .col-md-4
     .panel.panel-info
       .panel-heading
@@ -27,3 +27,16 @@
           %li.list-group-item
             %strong Last Updated:
             = "#{@nda.last_updated_at} ago"
+  .col-md-4
+    .panel.panel-default
+      .panel-heading
+        NDA Revisions
+      .panel-body
+        %ul.list-group
+          %li.list-group-item
+            %strong Created On:
+            = @nda.display_created_at
+.row
+  .col-md-12
+    %h3 Collected Signatures
+    %hr

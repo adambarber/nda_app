@@ -12,4 +12,9 @@ describe NonDisclosureAgreement do
   it "should display last time updated as relative time" do
     expect(nda.last_updated_at).to eql time_ago_in_words(nda.updated_at)
   end
+
+  it "should format markdown" do
+    nda = FactoryGirl.create(:non_disclosure_agreement, body: "**This is a headline**")
+    expect(nda.formatted_body).to eql "<p><strong>This is a headline</strong></p>\n"
+  end
 end
