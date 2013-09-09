@@ -1,2 +1,15 @@
-%h1 Admin#index
-%p Find me in app/views/admin/index.html.haml
+.row
+  .span12
+    %h1 Signatures
+
+.row
+  .span12
+    %table#signatures_table.table
+      %thead
+        %th ID
+        %th Name
+        %th Date
+        %th Signature
+      %tbody
+        = render collection: @signatures, partial: "admin/signature"
+
