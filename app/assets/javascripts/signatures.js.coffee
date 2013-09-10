@@ -5,7 +5,8 @@
 class Signature
 
   pad: (element) ->
-    $(element).signaturePad({drawOnly:true,lineTop: 180, output: "#signature_drawn_signature" })
+    opts = { drawOnly: true, lineTop: 180, output: "#signature_drawn_signature", lineMargin: 20 }
+    $(element).signaturePad opts
 
 $ ->
   signature = new Signature
