@@ -1,0 +1,13 @@
+.row
+  .col-md-12
+    %h1
+      Thank you for signing our NDA.
+    %h3
+      Would you like us to email you a copy?
+
+    %p
+      = simple_form_for "signautre" do |f|
+        = f.input :email
+        = f.submit "Send Me a Copy of the Signed NDA", class: "btn btn-primary"
+    %p
+      = link_to "Sign a new NDA", root_path, class: "btn btn-default"

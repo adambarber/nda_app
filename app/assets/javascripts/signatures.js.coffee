@@ -15,30 +15,30 @@ class Signature
 
   pad: (element) ->
     opts = { drawOnly: true,  output: "#signature_drawn_signature", bgColour : 'transparent', lineColour: 'transparent' }
-    @form.signaturePad opts
+    @signatureApi = @form.signaturePad opts
+    @signatureApi
 
   convertSignatureToImage: ->
-    api = @form.signaturePad()
+    api = @signatureApi
     signature_image = $('#signature_drawn_signature')
-    @form.on "submit", -> signature_image.val api.getSignatureImage()
+    @form.on "submit", -> signature_image.val(api.getSignatureImage())
 
   replaceCanvasContents = (canvas, newWidth) ->
     img = new Image()
     img.src = canvas.toDataURL("image/png")
     img.onload = ->
-      canvas.width = newWidth
+      if (navigator.userAgent.match(/iPhone/i)) or (navigator.userAgent.match(/iPod/i)) == true
+        canvas.height = 100
+      canvas.width = newWidth - 2
       canvas.getContext("2d").drawImage img, 0, 0
 
   changeCanvasSize = (canvas) ->
-    windowWidth = $(window).width()
-    if windowWidth < 767
-      replaceCanvasContents(canvas, 398)
-    else if windowWidth < 992
-      replaceCanvasContents(canvas, 748)
-    else if windowWidth < 1200
-      replaceCanvasContents(canvas, 801)
-    else if windowWidth > 1200
-      replaceCanvasContents(canvas, 968)
+    columnWidth = $('#form-container').width()
+    if @mobile == true
+      replaceCanvasContents(canvas, 290)
+    else
+      replaceCanvasContents(canvas, columnWidth)
+
 
   resizeCanvas: ->
     canvas = @canvas

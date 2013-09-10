@@ -8,10 +8,14 @@ class SignaturesController < ApplicationController
     @nda = NonDisclosureAgreement.last
     @signature = @nda.signatures.create(signature_params)
     if @signature.save
-      redirect_to root_path, notice: "NDA Successfully Submitted!"
+      redirect_to finished_path
     else
-      render :index
+      redirect_to root_path, notice: "Something went wrong. Please try again."
     end
+  end
+
+  def thanks
+
   end
 
   private

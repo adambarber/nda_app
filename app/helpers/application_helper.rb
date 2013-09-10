@@ -12,4 +12,8 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def site_logo
+    image_tag ENV['SITE_LOGO_URL']
+  end
+
 end
