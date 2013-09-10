@@ -1,22 +1,23 @@
 .row
   .col-md-10.col-md-offset-1
-    .text-center
-      = site_logo
-.row
-  .col-md-10.col-md-offset-1
-    = @nda.formatted_body
-.row
-  .col-md-10.col-md-offset-1#form-container
-    #signature-container
-      = simple_form_for @signature do |f|
-        = f.input :name, label: false, placeholder: "Your Full Name"
-        .sig.sigWrapper
-          .visible-md
-            %i.icon-remove#sig-x
-          %canvas.pad{:height => "200", :width => "968", style: "border: 1px solid"}
-          %div#signature-line
-          = f.input :drawn_signature, as: :hidden
+    .row
+      .col-md-12
+        .text-center
+          = site_logo
+    .row
+      .col-md-12
+        = @nda.formatted_body
+    .row
+      .col-md-12#form-container
+        #signature-container
+          = simple_form_for @signature do |f|
+            = f.input_field :name, label: false, placeholder: "Your Full Name"
+            .sig.sigWrapper
+              .visible-md
+                %i.icon-remove#sig-x
+              %canvas.pad{:height => "200", :width => "968", style: "border: 1px solid"}
+              %div#signature-line
+              = f.input_field :drawn_signature, as: :hidden
+            = f.submit "Submit Document Signature", class: "btn btn-primary btn-lg"
+            = link_to "Clear Signature"
 
-        .actions
-          %button{ class: "btn btn-danger btn-lg", style: "margin-right: 10px" }Clear Signature
-          = f.submit "Submit Document Signature", class: "btn btn-primary btn-lg"
