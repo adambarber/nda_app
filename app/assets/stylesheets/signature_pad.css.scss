@@ -12,12 +12,20 @@
 
   .sigWrapper {
     position: relative;
+    overflow: hidden;
     #sig-x {
       position: absolute;
       bottom: 20px;
       left: 20px;
       font-size: 73px;
       color: #999;
+    }
+    #signature-line {
+      position: absolute;
+      border-top: 3px dashed #ccc;
+      width: 95%;
+      margin-left: 2.5%;
+      bottom: 21px;
     }
   }
 
