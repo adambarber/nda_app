@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ../../../vendor/assets/bower_components/signature-pad/assets/json2.min
+//= require ../../../vendor/assets/bower_components/signature-pad/jquery.signaturepad
 //= require bootstrap
 //= require turbolinks
 //= require_tree .

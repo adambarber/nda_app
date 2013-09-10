@@ -1,0 +1,27 @@
+#signature-container {
+
+  margin: 2em 0;
+
+  #signature_name {
+    width: 100%;
+    padding: .7em;
+    border: 1px solid;
+    border-bottom: 0px;
+    font-size: 150%
+  }
+
+  .sigWrapper {
+    position: relative;
+    #sig-x {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 73px;
+      color: #999;
+    }
+  }
+
+  .actions {
+    margin: 2em 0 0 0;
+  }
+}

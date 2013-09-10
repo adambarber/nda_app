@@ -5,6 +5,7 @@ class Admin::NonDisclosureAgreementsController < AdminController
 
   def show
     @nda = NonDisclosureAgreement.find(params[:id])
+    @signatures = @nda.signatures
   end
 
   def edit
