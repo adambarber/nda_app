@@ -12,4 +12,5 @@
           = f.input :drawn_signature, as: :hidden
 
         .actions
-          = f.submit "Submit Document Signature", class: "btn btn-success"
+          %button{ class: "btn btn-danger btn-lg", style: "margin-right: 10px" }Clear Signature
+          = f.submit "Submit Document Signature", class: "btn btn-primary btn-lg"

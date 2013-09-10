@@ -1,6 +1,6 @@
 %tr
-  %td= signature.id
-  %td= signature.name
-  %td
-  %td
-  %td= link_to signature.non_disclosure_agreement_name, admin_non_disclosure_agreement_path(signature.non_disclosure_agreement)
+  %td.signature-cell= signature.id
+  %td.signature-cell= signature.name
+  %td.signature-cell
+  %td.signature-cell= drawn_signature_thumbnail signature
+  %td.signature-cell= link_to signature.non_disclosure_agreement_name, admin_non_disclosure_agreement_path(signature.non_disclosure_agreement)

@@ -4,10 +4,20 @@
 
 class Signature
 
+  constructor: (form) ->
+    @form = $(form)
+
   pad: (element) ->
-    opts = { drawOnly: true, lineTop: 180, output: "#signature_drawn_signature", lineMargin: 20 }
-    $(element).signaturePad opts
+    opts = { drawOnly: true, lineTop: 180, output: "#signature_drawn_signature", lineMargin: 20, bgColour : 'transparent' }
+    @form.signaturePad opts
+
+  convertSignatureToImage: ->
+    api = @form.signaturePad()
+    signature_image = $('#signature_drawn_signature')
+    @form.on "submit", ->
+      signature_image.val api.getSignatureImage()
 
 $ ->
-  signature = new Signature
-  signature.pad('.new_signature')
+  signature = new Signature('.new_signature')
+  signature.pad()
+  signature.convertSignatureToImage()
