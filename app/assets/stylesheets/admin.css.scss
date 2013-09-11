@@ -2,6 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bourbon";
+
 .signature-cell {
   line-height: 48px !important;
+}
+
+.meta-row {
+  td {
+    padding: 0 !important;
+  }
+}
+
+.signature-meta-data {
+  height: 0px;
+  width: 100%;
+  background: #ccc;
+  @include transition (all 0.4s ease-in-out);
+  overflow: hidden;
+}
+
+.signature-meta-data.open {
+  height: 150px;
 }

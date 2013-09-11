@@ -12,9 +12,10 @@ class Signature
     @pad()
     @convertSignatureToImage()
     @resizeCanvas()
+    @setDeviceDetails()
 
   pad: (element) ->
-    opts = { drawOnly: true,  output: "#signature_drawn_signature", bgColour : 'transparent', lineColour: 'transparent' }
+    opts = { drawOnly: true,  output: "#signature_drawn_signature", bgColour : 'transparent', lineColour: 'transparent', clear: "#clearSignature" }
     @signatureApi = @form.signaturePad opts
     @signatureApi
 
@@ -39,6 +40,10 @@ class Signature
     else
       replaceCanvasContents(canvas, columnWidth)
 
+  setDeviceDetails: ->
+    parser = new UAParser()
+    $('#signature_device_type').val JSON.stringify(parser.getDevice())
+    $('#signature_device_browser').val JSON.stringify(parser.getBrowser())
 
   resizeCanvas: ->
     canvas = @canvas

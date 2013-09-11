@@ -1,0 +1,14 @@
+{
+  "name": "jquery-browser-plugin",
+  "homepage": "https://github.com/gabceb/jquery-browser-plugin",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "f8b94491facef64d2e5f15e39726dfd804f5ee21"
+  },
+  "_source": "git://github.com/gabceb/jquery-browser-plugin.git",
+  "_target": "*",
+  "_originalSource": "jquery-browser-plugin"
+}

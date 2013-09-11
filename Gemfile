@@ -21,6 +21,7 @@ gem "spring"
 gem "foreman"
 gem 'redcarpet'
 gem "bower-rails", "~> 0.4.4"
+gem 'bourbon'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

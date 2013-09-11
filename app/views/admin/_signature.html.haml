@@ -1,6 +1,19 @@
-%tr
+%tr.signature-row{ data: { signatureId: signature.id } }
   %td.signature-cell= signature.id
   %td.signature-cell= signature.name
   %td.signature-cell= signature.display_created_at
   %td.signature-cell= drawn_signature_thumbnail signature
   %td.signature-cell= link_to signature.non_disclosure_agreement_name, admin_non_disclosure_agreement_path(signature.non_disclosure_agreement)
+%tr.meta-row{ class: "meta-for-#{signature.id}"}
+  %td{ colspan: 5 }
+    .signature-meta-data
+      %ul
+        %li
+          %strong IP Address:
+          = signature.ip_address
+        %li
+          %strong Browser:
+          = signature.device_browser
+        %li
+          %strong Device:
+          = signature.device_type

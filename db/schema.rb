@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909070757) do
+ActiveRecord::Schema.define(version: 20130911013843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20130909070757) do
     t.string   "name"
     t.text     "drawn_signature"
     t.integer  "non_disclosure_agreement_id"
+    t.string   "ip_address"
+    t.string   "device_type"
+    t.string   "device_browser"
   end
 
   add_index "signatures", ["non_disclosure_agreement_id"], name: "index_signatures_on_non_disclosure_agreement_id", using: :btree

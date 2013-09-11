@@ -1,2 +1,4 @@
 js 'signature-pad'
 js 'font-awesome'
+js 'jquery-browser-plugin'
+js 'ua-parser-js'

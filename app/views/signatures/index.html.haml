@@ -11,13 +11,20 @@
       .col-md-12#form-container
         #signature-container
           = simple_form_for @signature do |f|
-            = f.input_field :name, label: false, placeholder: "Your Full Name"
-            .sig.sigWrapper
-              .visible-md
-                %i.icon-remove#sig-x
-              %canvas.pad{:height => "200", :width => "968", style: "border: 1px solid"}
-              %div#signature-line
-              = f.input_field :drawn_signature, as: :hidden
-            = f.submit "Submit Document Signature", class: "btn btn-primary btn-lg"
-            = link_to "Clear Signature"
+            .row
+              .col-md-12
+                = f.input_field :name, label: false, placeholder: "Your Full Name"
+                .sig.sigWrapper
+                  .visible-md
+                    %i.icon-remove#sig-x
+                  %canvas.pad{:height => "200", :width => "968", style: "border: 1px solid"}
+                  %div#signature-line
+                  = f.input_field :drawn_signature, as: :hidden
+                  = f.input_field :device_type, as: :hidden
+                  = f.input_field :device_browser, as: :hidden
+            .row.top_15
+              .col-md-12
+                = f.submit "Submit Document Signature", class: "btn btn-primary btn-lg"
+
+                .top_10= link_to "Clear Signature", "#", id: "clearSignature"
 

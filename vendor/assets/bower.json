@@ -2,6 +2,8 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "signature-pad": "latest",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "jquery-browser-plugin": "latest",
+    "ua-parser-js": "latest"
   }
 }
