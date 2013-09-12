@@ -37,4 +37,5 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
   gem 'shoulda'
+  gem 'simplecov', require: false
 end
