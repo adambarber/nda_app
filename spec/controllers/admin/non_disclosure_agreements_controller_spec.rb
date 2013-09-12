@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Admin::NonDisclosureAgreementsController do
-
+  let(:non_disclosure_agreement) { NonDisclosureAgreement.create(name: "First NDA", body: "This is the text of an NDA") }
   let(:mock_user) { stub_model(User) }
 
   before(:each) do
     request.env['warden'] = double(Warden, :authenticate => mock_user, :authenticate! => mock_user)
-    @nda = NonDisclosureAgreement.create(name: "First NDA", body: "This is the text of an NDA")
+    non_disclosure_agreement
   end
 
   describe "GET 'index'" do
@@ -17,7 +17,7 @@ describe Admin::NonDisclosureAgreementsController do
       end
       it "assigns @ndas" do
         get 'index'
-        expect(assigns(:ndas)).to eq([@nda])
+        expect(assigns(:ndas)).to eq([non_disclosure_agreement])
       end
     end
     describe "views" do
@@ -40,22 +40,22 @@ describe Admin::NonDisclosureAgreementsController do
   describe "Get 'show'" do
     describe 'response' do
       it 'returns http success' do
-        get 'show', id: @nda
+        get 'show', id: non_disclosure_agreement
         expect(response).to be_success
       end
       it "assigns @nda" do
-        get 'edit', id: @nda
-        expect(assigns(:nda)).to eq(@nda)
+        get 'edit', id: non_disclosure_agreement
+        expect(assigns(:nda)).to eq(non_disclosure_agreement)
       end
     end
     describe 'views' do
       render_views
       it 'shows NDA name' do
-        get 'show', id: @nda.id
-        expect(response.body).to have_content(@nda.name)
+        get 'show', id: non_disclosure_agreement
+        expect(response.body).to have_content(non_disclosure_agreement.name)
       end
       it "shows content of NDA" do
-        get 'show', id: @nda
+        get 'show', id: non_disclosure_agreement
         expect(response.body).to have_content "NDA Text"
       end
     end
@@ -64,18 +64,18 @@ describe Admin::NonDisclosureAgreementsController do
   describe "Get 'edit'" do
     describe 'requests' do
       it "returns http success" do
-        get 'edit', id: @nda
+        get 'edit', id: non_disclosure_agreement
         response.should be_success
       end
       it "assigns @nda" do
-        get 'edit', id: @nda
-        expect(assigns(:nda)).to eq(@nda)
+        get 'edit', id: non_disclosure_agreement
+        expect(assigns(:nda)).to eq(non_disclosure_agreement)
       end
     end
     describe 'views' do
       render_views
       it 'shows edit form' do
-        get 'edit', id: @nda
+        get 'edit', id: non_disclosure_agreement
         expect(response.body).to have_selector('form')
       end
     end
@@ -84,9 +84,9 @@ describe Admin::NonDisclosureAgreementsController do
   describe "Put 'update" do
     describe 'requests' do
       it "should update the object's attributes" do
-        put :update, id: @nda.id, non_disclosure_agreement: { name: "new name", body: "new body text"}
-        @nda.reload
-        expect(@nda.name).to eq "new name"
+        put :update, id: non_disclosure_agreement.id, non_disclosure_agreement: { name: "new name", body: "new body text"}
+        non_disclosure_agreement.reload
+        expect(non_disclosure_agreement.name).to eq "new name"
       end
     end
   end
