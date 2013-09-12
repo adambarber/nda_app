@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Admin::NonDisclosureAgreementsController do
-  let(:non_disclosure_agreement) { stub_model(NonDisclosureAgreement) }
+
   let(:mock_user) { stub_model(User) }
 
   before(:each) do
