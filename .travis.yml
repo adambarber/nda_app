@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - '2.0.0'
+before_script:
+  - psql -c 'create database myapp_test;' -U postgres
+  - "cp config/database.example.yml config/database.yml"
+  - "cp config/application.yml.example config/application.yml"
+  - RAILS_ENV=test bundle exec rake db:create db:migrate
