@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require ../../../vendor/assets/bower_components/signature-pad/assets/json2.min
 //= require ../../../vendor/assets/bower_components/signature-pad/jquery.signaturepad
 //= require ../../../vendor/assets/bower_components/ua-parser-js/src/ua-parser
